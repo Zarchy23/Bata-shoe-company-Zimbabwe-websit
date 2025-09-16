@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bata Zimbabwe - Home</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <div class="container">
+      <a href="index.html" class="logo">
+<img src="https://thrivemyway.com/wp-content/uploads/2022/03/Bata-Logo-Shoe-Brands-1.png" alt="Bata Logo" /></a>
+      <nav>
+        <ul>
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="store-locator.html">Store Locator</a></li>
+          <li><a href="promotions.html">Promotions</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Slideshow -->
+  <section class="slideshow-container">
+    <div class="slide fade active" style="background-image: url('https://static.theprint.in/wp-content/uploads/2020/11/brandma-bata-1068x601.jpg');">
+      <div class="slide-text">
+        <h2>New Arrivals - Summer 2025</h2>
+        <p>Step into style with Bata's latest designs.</p>
+      </div>
+    </div>
+    <div class="slide fade" style="background-image: url('https://pbs.twimg.com/media/DwEA7SpV4AA3wpd.jpg');">
+      <div class="slide-text">
+        <h2>Back-to-School Specials</h2>
+        <p>Discounts on kids' footwear.</p>
+      </div>
+    </div>
+    <div class="slide fade" style="background-image: url('https://pbs.twimg.com/media/DwKbwItVsAAm61V.jpg');">
+      <div class="slide-text">
+        <h2>Classic Bata Heritage</h2>
+        <p>Celebrating Zimbabwean style for decades.</p>
+      </div>
+    </div>
+
+    <div class="dots-container">
+      <span class="dot active" onclick="currentSlide(1)"></span>
+      <span class="dot" onclick="currentSlide(2)"></span>
+      <span class="dot" onclick="currentSlide(3)"></span>
+    </div>
+  </section>
+
+  <main class="container">
+    <section class="intro">
+      <h1>Welcome to Bata Zimbabwe</h1>
+      <p>Discover quality footwear crafted for Zimbabwean lifestyles. Explore our collections and enjoy exclusive promotions.</p>
+    </section>
+  </main>
+
+  <!-- Modal for first-time visitors -->
+  <div id="discountModal" class="modal">
+    <div class="modal-content">
+      <span class="close-button" id="closeModal">&times;</span>
+      <h2>Welcome to Bata Zimbabwe!</h2>
+      <p>Subscribe to our newsletter and get a 10% discount on your first purchase.</p>
+      <form id="subscribeForm">
+        <input type="email" placeholder="Enter your email" required />
+        <button type="submit">Subscribe</button>
+      </form>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container footer-content">
+      <p>&copy; 2025 Bata Shoe Company Zimbabwe. All rights reserved.</p>
+      <p>Contact: +263 123 4567 | info@bata.co.zw</p>
+      <p>
+        Follow us on 
+        <a href="https://www.facebook.com/BataZimbabwe" target="_blank">Facebook</a> | 
+        <a href="https://www.instagram.com/BataZimbabwe" target="_blank">Instagram</a>
+      </p>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
