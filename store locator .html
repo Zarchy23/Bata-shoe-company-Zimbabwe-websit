@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bata Zimbabwe - Store Locator</title>
+  <link rel="stylesheet" href="styles.css" />
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <style>
+    #map { height: 400px; margin-top: 20px; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <a href="index.html" class="logo"><img src="images/logo.png" alt="Bata Logo" /></a>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="store-locator.html" class="active">Store Locator</a></li>
+          <li><a href="promotions.html">Promotions</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <h1>Find Our Stores</h1>
+    <p>Use the interactive map below to locate Bata retail outlets across Zimbabwe.</p>
+    <div id="map"></div>
+  </main>
+
+  <footer>
+    <div class="container footer-content">
+      <p>&copy; 2025 Bata Shoe Company Zimbabwe. All rights reserved.</p>
+      <p>Contact: +263 123 4567 | info@bata.co.zw</p>
+    </div>
+  </footer>
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script>
+    const map = L.map('map').setView([-17.8249, 31.0530], 7); // Zimbabwe center
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© OpenStreetMap contributors'
+    }).addTo(map);
+
+    // Example store locations with markers
+    const stores = [
+      { name: "Bata Harare", coords: [-17.8292, 31.0522] },
+      { name: "Bata Bulawayo", coords: [-20.1324, 28.6265] },
+      { name: "Bata Mutare", coords: [-18.9707, 32.6700] }
+    ];
+
+    stores.forEach(store => {
+      L.marker(store.coords).addTo(map)
+        .bindPopup(`<b>${store.name}</b>`)
+        .openPopup();
+    });
+  </script>
+</body>
+</html>

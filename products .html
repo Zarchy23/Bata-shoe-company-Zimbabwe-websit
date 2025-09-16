@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bata Zimbabwe - Products</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <div class="container">
+      <a href="index.html" class="logo"><img src=""https://c8.alamy.com/comp/E32WK1/bata-sign-logo-wenceslas-square-prague-czech-republic-E32WK1.jpg alt="Bata Logo" /></a>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="products.html" class="active">Products</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="store-locator.html">Store Locator</a></li>
+          <li><a href="promotions.html">Promotions</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <h1>Our Products</h1>
+
+    <div class="filters">
+      <button class="filter-btn active" data-category="all">All</button>
+      <button class="filter-btn" data-category="men">Men</button>
+      <button class="filter-btn" data-category="women">Women</button>
+      <button class="filter-btn" data-category="children">Children</button>
+    </div>
+
+    <section id="productGrid" class="product-grid">
+      <!-- Product cards will go here -->
+      <article class="product-card men">
+        <img src="https://happygentleman.com/wp-content/uploads/2019/11/80058-6-mens-shoes-black2.jpg" alt="Men's Running Shoes" />
+        <h3>Men's Running Shoes</h3>
+        <p>Comfortable and durable running shoes.</p>
+        <p>Sizes: 7-12</p>
+        <p class="price">$50</p>
+        <button class="add-to-cart" data-id="1" data-name="Men's Running Shoes" data-price="50">Add to Cart</button>
+      </article>
+
+      <article class="product-card women">
+        <img src="https://images.pexels.com/photos/949590/pexels-photo-949590.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260" alt="Women's Sandals" />
+        <h3>Women's Sandals</h3>
+        <p>Stylish sandals for casual wear.</p>
+        <p>Sizes: 5-10</p>
+        <p class="price">$35</p>
+        <button class="add-to-cart" data-id="2" data-name="Women's Sandals" data-price="35">Add to Cart</button>
+      </article>
+
+      <article class="product-card children">
+        <img src="https://st3.depositphotos.com/1177973/13045/i/950/depositphotos_130455748-stock-photo-colorful-kids-shoes.jpg" alt="Children's Sneakers" />
+        <h3>Children's Sneakers</h3>]
+        <p>Durable sneakers for active kids.</p>
+        <p>Sizes: 1-5</p>
+        <p class="price">$30</p>
+        <button class="add-to-cart" data-id="3" data-name="Children's Sneakers" data-price="30">Add to Cart</button>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-content">
+      <p>&copy; 2025 Bata Shoe Company Zimbabwe. All rights reserved.</p>
+      <p>Contact: +263 123 4567 | info@bata.co.zw</p>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

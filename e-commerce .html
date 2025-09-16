@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bata Zimbabwe - Products</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* Minimal styles for layout */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 12; padding: 10;
+    }
+    header, footer {
+      background: #333;
+      color: white;
+      padding: 1rem 10;
+    }
+    header .container, footer .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 10 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1rem;
+      margin: 12;
+      padding: 10;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a.active {
+      text-decoration: underline;
+    }
+    main.container {
+      max-width: 1100px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+      display: flex;
+      gap: 2rem;
+    }
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+      flex: 3;
+    }
+    .product-card {
+      border: 1px solid #ddd;
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .product-card img {
+      max-width: 100%;
+      border-radius: 8px;
+    }
+    .product-card h3 {
+      margin: 0.5rem 0;
+    }
+    .product-card p {
+      margin: 0.25rem 0 1rem;
+      color: #555;
+    }
+    .product-card button {
+      background: #d32f2f;
+      color: white;
+      border: 3;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+    .product-card button:hover {
+      background: #b71c1c;
+    }
+    /* Cart sidebar */
+    .cart-sidebar {
+      flex: 1;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 1rem;
+      height: fit-content;
+      position: sticky;
+      top: 2rem;
+      background: #fafafa;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    .cart-sidebar h2 {
+      margin-top: 0;
+    }
+    .cart-items {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 1rem 0;
+      max-height: 300px;
+      overflow-y: auto;
+    }
+    .cart-items li {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid #ddd;
+      align-items: center;
+    }
+    .cart-items li button {
+      background: transparent;
+      border: none;
+      color: #d32f2f;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .cart-total {
+      font-weight: bold;
+      font-size: 1.2rem;
+      text-align: right;
+      margin-bottom: 1rem;
+    }
+    .checkout-btn {
+      width: 100%;
+      background: #388e3c;
+      color: white;
+      border: none;
+      padding: 0.75rem;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 1rem;
+    }
+    .checkout-btn:hover {
+      background: #2e7d32;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <a href="index.html" class="logo"><img src="images/logo.png" alt="Bata Logo" height="40" /></a>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="products.html" class="active">Products</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="store-locator.html">Store Locator</a></li>
+          <li><a href="promotions.html">Promotions</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="products-grid" id="products-grid">
+      <!-- Products will be injected here -->
+    </section>
+
+    <aside class="cart-sidebar">
+      <h2>Your Cart</h2>
+      <ul class="cart-items" id="cart-items">
+        <!-- Cart items go here -->
+      </ul>
+      <div class="cart-total" id="cart-total">Total: $0.00</div>
+      <button class="checkout-btn" id="checkout-btn">Checkout</button>
+    </aside>
+  </main>
+
+  <footer style="text-align:center; padding: 1rem; background:#333; color:#fff; margin-top:2rem;">
+    &copy; 2025 Bata Zimbabwe. All rights reserved.
+  </footer>
+
+  <script>
+    // Sample product data
+    const products = [
+      {
+        id: 1,
+        name: "Men's Classic Sneakers",
+        price: 59.99,
+        sizes: [7, 8, 9, 10, 11],
+        img: "https://shoes.cwmalls.com/media/catalog/product/cache/3/image/9df78eab33525d08d6e5fb8d27136e95/b/l/blue_moccasin_loafers_for_men_740012s6.jpg",
+        description: "Comfortable and stylish sneakers for everyday wear."
+      },
+      {
+        id: 2,
+        name: "Women's Leather Boots",
+        price: 89.99,
+        sizes: [5, 6, 7, 8, 9],
+        img: "https://static.vecteezy.com/system/resources/previews/030/712/648/non_2x/ai-generative-of-a-woman-shoes-photo.jpeg",
+        description: "Durable leather boots perfect for all seasons."
+      },
+      {
+        id: 3,
+        name: "Kids' Sport Shoes",
+        price: 39.99,
+        sizes: [1, 2, 3, 4, 5],
+        img: "https://pbs.twimg.com/media/DwKbwItVsAAm61V.jpg",
+        description: "Lightweight shoes designed for active kids."
+      }
+    ];
+
+    const productsGrid = document.getElementById('products-grid');
+    const cartItemsContainer = document.getElementById('cart-items');
+    const cartTotalDisplay = document.getElementById('cart-total');
+    const checkoutBtn = document.getElementById('checkout-btn');
+
+    // Load cart from localStorage or initialize
+    let cart = JSON.parse(localStorage.getItem('bataCart')) || [];
+
+    // Render products on page
+    function renderProducts() {
+      productsGrid.innerHTML = '';
+      products.forEach(product => {
+        const productCard = document.createElement('div');
+        productCard.classList.add('product-card');
+        productCard.innerHTML = `
+          <img src="${product.img}" alt="${product.name}" />
+          <h3>${product.name}</h3>
+          <p>${product.description}</p>
+          <p><strong>Price:</strong> $${product.price.toFixed(2)}</p>
+          <label for="size-${product.id}">Size:</label>
+          <select id="size-${product.id}">
+            ${product.sizes.map(size => `<option value="${size}">${size}</option>`).join('')}
+          </select>
+          <button data-id="${product.id}">Add to Cart</button>
+        `;
+        productsGrid.appendChild(productCard);
+      });
+    }
+
+    // Render cart items
+    function renderCart() {
+      cartItemsContainer.innerHTML = '';
+      if (cart.length === 0) {
+        cartItemsContainer.innerHTML = '<li>Your cart is empty.</li>';
+        cartTotalDisplay.textContent = 'Total: $0.00';
+        return;
+      }
+
+      let total = 0;
+      cart.forEach(item => {
+        const product = products.find(p => p.id === item.id);
+        const itemTotal = product.price * item.quantity;
+        total += itemTotal;
+
+        const li = document.createElement('li');
+        li.innerHTML = `
+          <span>${product.name} (Size ${item.size}) x${item.quantity}</span>
+          <span>$${itemTotal.toFixed(2)}</span>
+          <button data-id="${item.id}" data-size="${item.size}">&times;</button>
+        `;
+        cartItemsContainer.appendChild(li);
+      });
+
+      cartTotalDisplay.textContent = `Total: $${total.toFixed(2)}`;
+    }
+
+    // Add to cart handler
+    productsGrid.addEventListener('click', e => {
+      if (e.target.tagName === 'BUTTON') {
+        const id = parseInt(e.target.getAttribute('data-id'));
+        const sizeSelect = document.getElementById(`size-${id}`);
+        const size = sizeSelect.value;
+
+        // Check if product with same size exists in cart
+        const existingItem = cart.find(item => item.id === id && item.size === size);
+        if (existingItem) {
+          existingItem.quantity += 1;
+        } else {
+          cart.push({ id, size, quantity: 1 });
+        }
+        saveCart();
+        renderCart();
+      }
+    });
+
+    // Remove from cart handler
+    cartItemsContainer.addEventListener('click', e => {
+      if (e.target.tagName === 'BUTTON') {
+        const id = parseInt(e.target.getAttribute('data-id'));
+        const size = e.target.getAttribute('data-size');
+
+        cart = cart.filter(item => !(item.id === id && item.size === size));
+        saveCart();
+        renderCart();
+      }
+    });
+
+    // Save cart to localStorage
+    function saveCart() {
+      localStorage.setItem('bataCart', JSON.stringify(cart));
+    }
+
+    // Checkout simulation
+    checkoutBtn.addEventListener('click', () => {
+      if (cart.length === 0) {
+        alert('Your cart is empty!');
+        return;
+      }
+      alert('Thank you for your purchase! This is a simulation.');
+      cart = [];
+      saveCart();
+      renderCart();
+    });
+
+    // Initial render
+    renderProducts();
+    renderCart();
+  </script>
+</body>
+</html>
